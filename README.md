@@ -4,6 +4,8 @@ A local, browser-based resume editor with live preview, theme controls, PDF expo
 
 This project is an **independent, open-source learning exercise**. It is **not** the official Novo Resume / NovoResume product and is **not** affiliated with, endorsed by, or sponsored by Novo Resume or any related company.
 
+![Novo Resume Builder — editor and live preview](screenshot.png)
+
 ---
 
 ## Disclaimer & fair use (educational purpose)
