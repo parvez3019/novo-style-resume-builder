@@ -1,0 +1,451 @@
+.resume-page {
+  --resume-text: #222;
+  --resume-muted: #666;
+  --resume-border: #d5dbe3;
+  --resume-base: 8pt;
+  --resume-section-heading: 9pt;
+  --resume-job-title: 8.5pt;
+  --resume-company: 8.5pt;
+  --resume-bullet: 8pt;
+  --resume-meta: 7pt;
+  --resume-font: 'Ubuntu', sans-serif;
+  --resume-blue: #3a8fd8;
+  --resume-header-bg: #eef3f8;
+  --resume-line-height: 1.32;
+  --resume-line-gap: 2px;
+  --resume-section-gap: 8px;
+  --resume-entry-gap: 7px;
+  --resume-title-gap: 6px;
+  --resume-body-padding: 5mm 11mm 5mm;
+
+  width: 210mm;
+  min-height: 297mm;
+  padding: 0;
+  background: #fff;
+  color: var(--resume-text);
+  font-family: var(--resume-font);
+  font-size: var(--resume-base);
+  line-height: var(--resume-line-height);
+  position: relative;
+}
+
+.resume-preview-frame {
+  width: 210mm;
+  min-height: 297mm;
+  overflow: visible;
+  position: relative;
+  background: #fff;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+  flex-shrink: 0;
+}
+
+@media screen {
+  .resume-page {
+    background-image: repeating-linear-gradient(
+      to bottom,
+      #fff 0,
+      #fff calc(297mm - 1px),
+      #d5dbe3 calc(297mm - 1px),
+      #d5dbe3 297mm
+    );
+    background-size: 100% 297mm;
+  }
+}
+
+/* Header band */
+.resume-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) auto minmax(0, 0.95fr);
+  align-items: start;
+  gap: 10px 14px;
+  padding: 9mm 11mm 5mm;
+  background: var(--resume-header-bg);
+  border-bottom: 1px solid var(--resume-border);
+}
+
+.resume-header__identity {
+  display: flex;
+  align-items: stretch;
+  gap: 7px;
+  min-width: 0;
+}
+
+.resume-header__accent {
+  width: 5px;
+  background: var(--resume-blue);
+  border-radius: 1px;
+  flex-shrink: 0;
+}
+
+.resume-header__identity-text {
+  min-width: 0;
+}
+
+.resume-header__name {
+  margin: 0;
+  font-size: calc(var(--resume-base) * 2.375);
+  font-weight: 700;
+  color: var(--resume-blue);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+}
+
+.resume-header__title {
+  margin: 1px 0 5px;
+  font-size: var(--resume-job-title);
+  font-weight: 400;
+  color: var(--resume-muted);
+}
+
+.resume-header__summary {
+  margin: 0;
+  font-size: var(--resume-bullet);
+  color: #333;
+  line-height: var(--resume-line-height);
+  max-width: 100%;
+}
+
+.resume-header__photo-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 1px;
+}
+
+.resume-header__photo,
+.resume-header__photo-placeholder {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow: 0 0 0 1px #dde3ea;
+}
+
+.resume-header__photo {
+  object-fit: cover;
+  display: block;
+}
+
+.resume-header__photo-placeholder {
+  background: #dfe6ee;
+}
+
+.resume-header__contact {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  font-size: var(--resume-meta);
+  color: #333;
+  padding-top: 2px;
+}
+
+.resume-header__contact-item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 5px;
+  text-align: right;
+  max-width: 100%;
+}
+
+.resume-header__contact-item svg {
+  color: var(--resume-blue);
+  flex-shrink: 0;
+}
+
+.resume-header__contact-item a {
+  color: #333;
+  text-decoration: none;
+}
+
+/* Body */
+.resume-body {
+  display: grid;
+  grid-template-columns: 1.68fr 1fr;
+  gap: 0 16px;
+  padding: var(--resume-body-padding);
+  align-items: start;
+}
+
+.resume-main,
+.resume-sidebar {
+  min-width: 0;
+}
+
+.resume-main > .resume-section + .resume-section {
+  margin-top: 2px;
+}
+
+.resume-section {
+  margin-bottom: var(--resume-section-gap);
+}
+
+.resume-section-title {
+  margin: 0 0 var(--resume-title-gap);
+  padding-bottom: 3px;
+  border-bottom: 1px solid var(--resume-border);
+  font-size: var(--resume-section-heading);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #1f1f1f;
+}
+
+/* Work experience */
+.work-entry {
+  margin-bottom: var(--resume-entry-gap);
+}
+
+.work-entry__head {
+  display: flex;
+  align-items: stretch;
+  gap: 6px;
+}
+
+.work-entry__accent {
+  width: 5px;
+  background: #555;
+  border-radius: 1px;
+  flex-shrink: 0;
+  align-self: stretch;
+  min-height: 34px;
+}
+
+.work-entry__meta {
+  flex: 1;
+  min-width: 0;
+}
+
+.work-entry__title {
+  margin: 0;
+  font-size: var(--resume-job-title);
+  font-weight: 700;
+  color: #111;
+  line-height: 1.25;
+}
+
+.work-entry__company {
+  margin: 1px 0 0;
+  font-size: var(--resume-company);
+  font-weight: 400;
+  color: #222;
+}
+
+.work-entry__timeline {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+  margin-top: 1px;
+}
+
+.work-entry__dates,
+.work-entry__location {
+  font-size: var(--resume-meta);
+  font-style: italic;
+  color: var(--resume-muted);
+}
+
+.work-entry__location {
+  text-align: right;
+}
+
+.work-entry__body {
+  margin: 2px 0 0 11px;
+}
+
+.work-entry__label {
+  margin: 0 0 2px;
+  font-size: var(--resume-meta);
+  font-style: italic;
+  color: #777;
+}
+
+.work-entry__bullets {
+  margin: 0;
+  padding-left: 12px;
+}
+
+.work-entry__bullets li {
+  margin-bottom: var(--resume-line-gap);
+  font-size: var(--resume-bullet);
+  color: #222;
+  line-height: var(--resume-line-height);
+  overflow-wrap: break-word;
+}
+
+.resume-link,
+.work-entry__bullets a,
+.community-list a {
+  color: var(--resume-blue);
+  text-decoration: underline;
+}
+
+.work-entry__tech {
+  margin: 3px 0 0;
+  font-size: var(--resume-bullet);
+  color: #222;
+}
+
+.work-entry__tech strong {
+  font-weight: 700;
+}
+
+/* Skills */
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px 4px;
+}
+
+.skill-pill {
+  display: inline-block;
+  padding: 1px 6px;
+  background: var(--resume-blue);
+  color: #fff;
+  border-radius: 2px;
+  font-size: var(--resume-meta);
+  line-height: 1.45;
+  white-space: nowrap;
+}
+
+/* Sidebar */
+.sidebar-section {
+  margin-bottom: var(--resume-section-gap);
+}
+
+.sidebar-subtitle {
+  margin: 0 0 3px;
+  font-size: var(--resume-job-title);
+  font-weight: 700;
+  color: #222;
+}
+
+.community-list {
+  margin: 0 0 6px;
+  padding-left: 12px;
+}
+
+.community-list li {
+  margin-bottom: var(--resume-line-gap);
+  font-size: var(--resume-bullet);
+  line-height: var(--resume-line-height);
+}
+
+/* Education */
+.education-entry {
+  margin-bottom: var(--resume-entry-gap);
+}
+
+.education-entry__degree {
+  margin: 0;
+  font-size: var(--resume-job-title);
+  font-weight: 700;
+  color: #111;
+  line-height: 1.25;
+}
+
+.education-entry__institution {
+  margin: 0;
+  font-size: var(--resume-company);
+  font-weight: 400;
+  color: #222;
+  line-height: 1.25;
+}
+
+.education-entry__years {
+  margin: 0;
+  font-size: var(--resume-meta);
+  font-style: italic;
+  color: var(--resume-muted);
+}
+
+/* Achievements */
+.achievements-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.achievements-list li {
+  margin-bottom: var(--resume-line-gap);
+  font-size: var(--resume-bullet);
+  line-height: var(--resume-line-height);
+  padding-left: 0;
+}
+
+.achievements-list li::before {
+  content: '- ';
+}
+
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 0;
+  }
+
+  html,
+  body,
+  #root {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: auto !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    background: #fff;
+  }
+
+  body * {
+    visibility: hidden;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .app-shell,
+  .preview-panel {
+    display: block !important;
+    width: auto !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    background: #fff !important;
+    position: static !important;
+  }
+
+  .resume-preview-frame,
+  .resume-preview-frame * {
+    visibility: visible;
+  }
+
+  .resume-preview-frame {
+    position: static;
+    width: 210mm;
+    min-height: 0;
+    height: auto;
+    max-height: none;
+    overflow: visible;
+    box-shadow: none;
+  }
+
+  .resume-page {
+    width: 210mm;
+    min-height: 0;
+    box-shadow: none;
+    margin: 0;
+    background-image: none;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .resume-header,
+  .skill-pill {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
