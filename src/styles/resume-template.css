@@ -449,3 +449,31 @@
     print-color-adjust: exact;
   }
 }
+
+/* Overflow marker: preview only, never exported (also carries .no-print) */
+.page-break-marker {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 297mm;
+  height: 0;
+  border-top: 2px dashed #d9534f;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.page-break-marker--visible {
+  visibility: visible;
+}
+
+.page-break-marker__badge {
+  position: absolute;
+  right: 8px;
+  top: 6px;
+  max-width: calc(100% - 16px);
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: #d9534f;
+  color: #fff;
+  font: 600 11px/1.3 system-ui, sans-serif;
+}
