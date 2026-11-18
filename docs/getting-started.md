@@ -8,7 +8,7 @@ description: Start building your resume online in seconds, or run the resume bui
 
     1. Open **[the app](https://parvez3019.github.io/novo-style-resume-builder/)**.
     2. Replace the sample content in the left-hand editor with your own.
-    3. Click **Download PDF** (and optionally **Download ATS Text**).
+    3. Click **Download PDF**, or press Ctrl/Cmd+P (and optionally **Download ATS Text**).
 
     Your work is saved automatically in your browser, so you can close the tab and come back later on the same device and browser.
 
