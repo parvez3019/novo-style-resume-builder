@@ -40,7 +40,7 @@ export function ResumeUploadButton({ currentPhotoUrl, currentTheme, onImport }: 
       <input
         ref={inputRef}
         type="file"
-        accept=".pdf,.txt,application/pdf,text/plain"
+        accept=".pdf,.txt,.json,application/pdf,text/plain,application/json"
         hidden
         onChange={handleFileChange}
       />

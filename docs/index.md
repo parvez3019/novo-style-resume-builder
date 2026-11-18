@@ -33,7 +33,7 @@ Edit with a live A4 preview, export a polished PDF and an ATS-friendly plain-tex
 
 -   :material-upload: **Import an existing resume**
 
-    Upload a `.pdf` or `.txt` to auto-fill the fields. [How-to](guide/import.md)
+    Upload a `.pdf`, `.txt` or `.json` to auto-fill the fields. [How-to](guide/import.md)
 
 -   :material-palette: **Theme it**
 

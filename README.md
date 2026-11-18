@@ -17,7 +17,8 @@
 - 👀 **Live A4 preview:** what you see is what you print.
 - 📄 **PDF export:** clean, selectable-text PDF via your browser's print dialog.
 - 🤖 **ATS text export:** a plain-text version that applicant tracking systems parse reliably.
-- 📥 **Import:** upload an existing `.pdf` or `.txt` resume to auto-fill the fields.
+- 📥 **Import:** upload an existing `.pdf`, `.txt` or `.json` resume to auto-fill the fields.
+- 💾 **JSON backup:** download a full-fidelity `.json` (theme and photo included) and restore it any time.
 - 🎨 **Theming:** 7 fonts, 3 template sizes, line and section spacing, any accent colour.
 - 🧩 **Sections:** personal info and photo, work experience, skills, community (open source, blogs), education, achievements.
 
