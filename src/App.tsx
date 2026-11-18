@@ -13,6 +13,14 @@ loadThemeFont('ubuntu');
 function App() {
   const { resume, setResume, resetTemplate } = useResumeStorage();
 
+  const handleReset = () => {
+    const confirmed = window.confirm(
+      'Reset to the sample template? Your current resume will be replaced and cannot be recovered. ' +
+        'Tip: cancel and use "Download ATS Text" first to keep a backup.',
+    );
+    if (confirmed) resetTemplate();
+  };
+
   return (
     <div className="app-shell">
       <aside className="editor-panel no-print">
@@ -33,7 +41,7 @@ function App() {
           >
             Download ATS Text
           </button>
-          <button type="button" className="toolbar-btn" onClick={resetTemplate}>
+          <button type="button" className="toolbar-btn" onClick={handleReset}>
             Reset template
           </button>
         </div>
