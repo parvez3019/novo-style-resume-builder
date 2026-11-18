@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { EditorPanel } from './components/Editor/EditorPanel';
 import { ResumeUploadButton } from './components/Editor/ResumeUploadButton';
 import { ResumePreview } from './components/Resume/ResumePreview';
@@ -12,6 +13,21 @@ loadThemeFont('ubuntu');
 
 function App() {
   const { resume, setResume, resetTemplate } = useResumeStorage();
+
+  useEffect(() => {
+    const onKeyDown = (event: KeyboardEvent) => {
+      const isPrintShortcut =
+        (event.ctrlKey || event.metaKey) &&
+        !event.altKey &&
+        !event.shiftKey &&
+        event.key.toLowerCase() === 'p';
+      if (!isPrintShortcut) return;
+      event.preventDefault();
+      if (!event.repeat) void exportPdf();
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, []);
 
   return (
     <div className="app-shell">

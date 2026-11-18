@@ -43,7 +43,7 @@ npm run preview   # serve the build locally
 
 ## Exporting a PDF
 
-1. Click **Download PDF**.
+1. Click **Download PDF** (or press Ctrl/Cmd+P).
 2. In the print dialog, choose **Save as PDF**, turn **off** "Headers and footers", and set margins to **None**.
 
 More tips are in the [PDF export guide](https://parvez3019.github.io/novo-style-resume-builder/docs/guide/export-pdf/).
