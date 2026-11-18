@@ -10,8 +10,17 @@ import './styles/global.css';
 
 loadThemeFont('ubuntu');
 
+const RESET_CONFIRMATION =
+  'Reset the template? This replaces your resume with the sample data and cannot be undone, ' +
+  'because your resume is only stored in this browser.\n\n' +
+  'Tip: choose "Cancel" and use "Download ATS Text" first to keep a backup.';
+
 function App() {
   const { resume, setResume, resetTemplate } = useResumeStorage();
+
+  const handleReset = () => {
+    if (window.confirm(RESET_CONFIRMATION)) resetTemplate();
+  };
 
   return (
     <div className="app-shell">
@@ -33,7 +42,7 @@ function App() {
           >
             Download ATS Text
           </button>
-          <button type="button" className="toolbar-btn" onClick={resetTemplate}>
+          <button type="button" className="toolbar-btn" onClick={handleReset}>
             Reset template
           </button>
         </div>
