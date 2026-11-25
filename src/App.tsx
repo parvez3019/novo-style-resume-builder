@@ -3,6 +3,7 @@ import { ResumeUploadButton } from './components/Editor/ResumeUploadButton';
 import { ResumePreview } from './components/Resume/ResumePreview';
 import { useResumeStorage } from './hooks/useResumeStorage';
 import { exportAtsText } from './lib/exportAtsText';
+import { exportJson } from './lib/exportJson';
 import { exportPdf } from './lib/exportPdf';
 import { loadThemeFont } from './lib/theme';
 import './styles/editor.css';
@@ -32,6 +33,9 @@ function App() {
             onClick={() => exportAtsText(resume)}
           >
             Download ATS Text
+          </button>
+          <button type="button" className="toolbar-btn" onClick={() => exportJson(resume)}>
+            Download JSON
           </button>
           <button type="button" className="toolbar-btn" onClick={resetTemplate}>
             Reset template

@@ -1,6 +1,7 @@
 import { defaultResume } from '../data/defaultResume';
 import type { ResumeData } from '../types/resume';
 import { isAtsFormat, parseAtsText } from './parseAtsText';
+import { parseResumeJson } from './parseResumeJson';
 import { parseResumeText } from './parseResumeText';
 
 async function extractTextFromPdf(file: File): Promise<string> {
@@ -71,6 +72,11 @@ export async function importResumeFile(
 ): Promise<ResumeData> {
   const extension = file.name.split('.').pop()?.toLowerCase();
 
+  if (extension === 'json' || file.type === 'application/json') {
+    // A JSON export is a full backup, so it also restores the theme and photo.
+    return parseResumeJson(await file.text());
+  }
+
   if (extension === 'txt' || file.type === 'text/plain') {
     const text = await file.text();
     const parsed = isAtsFormat(text) ? parseAtsText(text) : parseResumeText(text);
@@ -86,7 +92,7 @@ export async function importResumeFile(
     return mergeWithTemplate(parsed, options);
   }
 
-  throw new Error('Unsupported file type. Upload a .pdf or .txt resume.');
+  throw new Error('Unsupported file type. Upload a .pdf, .txt or .json resume.');
 }
 
 export type ImportResumeResult =
